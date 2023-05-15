@@ -60,18 +60,18 @@ if(clicked == True):
     # 선 그래프 그리기 - plotly
     # 캔들차트 만들기: https://plotly.com/python/candlestick-charts/
     # Plotly에서 제목, x축 제목, y축 제목 등 변경: https://plotly.com/python/figure-labels/
-    st.subheader(f"[{stock_name}] 주가 그래프")
-    fig = go.Figure(data=go.Ohlc(x=df.index,
-                    open=df['Open'],
-                    high=df['High'],
-                    low=df['Low'],
-                    close=df['Close']))
-    fig.update_layout(
-        xaxis_title="기간",
-        yaxis_title="주가",
-        )
+#    st.subheader(f"[{stock_name}] 주가 그래프")
+#    fig = go.Figure(data=go.Ohlc(x=df.index,
+#                    open=df['Open'],
+#                    high=df['High'],
+#                    low=df['Low'],
+#                    close=df['Close']))
+#    fig.update_layout(
+#        xaxis_title="기간",
+#        yaxis_title="주가",
+#        )
 
-    st.plotly_chart(fig, use_container_width=True)
+#    st.plotly_chart(fig, use_container_width=True)
     
     
     csv_data = df.to_csv()  
