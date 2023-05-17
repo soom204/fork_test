@@ -48,30 +48,30 @@ if(clicked == True):
 
 
     # 선 그래프 그리기 - matplotlib
-    ax = df['Close'].plot(grid=True, figsize=(15, 5))
-    ax.set_title("주가(종가) 그래프", fontsize=30) # 그래프 제목을 지정
-    ax.set_xlabel("기간", fontsize=20)             # x축 라벨을 지정
-    ax.set_ylabel("주가(원)", fontsize=20)         # y축 라벨을 지정
-    plt.xticks(fontsize=15)                        # X축 눈금값의 폰트 크기 지정
-    plt.yticks(fontsize=15)                        # Y축 눈금값의 폰트 크기 지정    
-    fig = ax.get_figure()                          # fig 객체 가져오기    
-    st.pyplot(fig)                                 # 스트림릿 웹 앱에 그래프 그리기
+#    ax = df['Close'].plot(grid=True, figsize=(15, 5))
+#    ax.set_title("주가(종가) 그래프", fontsize=30) # 그래프 제목을 지정
+#    ax.set_xlabel("기간", fontsize=20)             # x축 라벨을 지정
+#    ax.set_ylabel("주가(원)", fontsize=20)         # y축 라벨을 지정
+#    plt.xticks(fontsize=15)                        # X축 눈금값의 폰트 크기 지정
+#    plt.yticks(fontsize=15)                        # Y축 눈금값의 폰트 크기 지정    
+#    fig = ax.get_figure()                          # fig 객체 가져오기    
+#    st.pyplot(fig)                                 # 스트림릿 웹 앱에 그래프 그리기
 
     # 선 그래프 그리기 - plotly
     # 캔들차트 만들기: https://plotly.com/python/candlestick-charts/
     # Plotly에서 제목, x축 제목, y축 제목 등 변경: https://plotly.com/python/figure-labels/
-#    st.subheader(f"[{stock_name}] 주가 그래프")
-#    fig = go.Figure(data=go.Ohlc(x=df.index,
-#                    open=df['Open'],
-#                    high=df['High'],
-#                    low=df['Low'],
-#                    close=df['Close']))
-#    fig.update_layout(
-#        xaxis_title="기간",
-#        yaxis_title="주가",
-#        )
+    st.subheader(f"[{stock_name}] 주가 그래프")
+    fig = go.Figure(data=go.Ohlc(x=df.index,
+                    open=df['Open'],
+                    high=df['High'],
+                    low=df['Low'],
+                    close=df['Close']))
+    fig.update_layout(
+        xaxis_title="기간",
+        yaxis_title="주가",
+        )
 
-#    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, use_container_width=True)
     
     
     csv_data = df.to_csv()  
